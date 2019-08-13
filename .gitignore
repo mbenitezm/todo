@@ -1,0 +1,9 @@
+# compiled output
+.next
+.serverless
+
+# dependencies
+node_modules
+
+# etc
+.DS_Store
