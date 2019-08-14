@@ -9,8 +9,10 @@ const atomStories = storiesOf('Atoms', module);
 
 atomStories.add('Button default', () => <Button text="Add" onClick={() => {}} />);
 atomStories.add('Button success', () => (
-  <Button text="Add" buttonType="success" onClick={() => {}} />
+  <Button text="Add" buttonColor="success" onClick={() => {}} />
 ));
 atomStories.add('Header', () => <Header />);
-atomStories.add('Input', () => <Input inputId="test" inputName="test" />);
+atomStories.add('Input', () => (
+  <Input field={{ name: 'test' }} form={{ touched: 'yes', errors: 'none' }} />
+));
 atomStories.add('Text', () => <Text text="this is a test" />);

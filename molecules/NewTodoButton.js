@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../atoms/Button';
 
-const NewTodoButton = () => (
+const NewTodoButton = ({ open }) => (
   <div className="newTodoButton">
-    <Button text="New Todo" buttonType="success" />
+    <Button text="New Todo" buttonColor="success" onClick={open} />
 
     <style jsx>
       {`
@@ -14,5 +15,9 @@ const NewTodoButton = () => (
     </style>
   </div>
 );
+
+NewTodoButton.propTypes = {
+  open: PropTypes.func.isRequired,
+};
 
 export default NewTodoButton;

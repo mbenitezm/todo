@@ -1,22 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Field } from 'formik';
 import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 import Input from '../atoms/Input';
 
-const NewTodo = () => (
+const NewTodo = ({ close, values }) => (
   <div>
     <div className="newTodo">
       <Text text="Title: " />
-      <Input inputId="title" inputName="title" />
+      <Field name="title" component={Input} id="title" value={values.title} />
       <br />
       <Text text="Description: " />
-      <Input inputId="description" inputName="description" />
+      <Field name="description" component={Input} id="description" value={values.description} />
+
       <br />
       <div className="btn-right">
-        <Button text="Save" buttonType="success" />
+        <Button text="Save" buttonColor="success" buttonType="submit" />
       </div>
       <div className="btn-left">
-        <Button text="Close" />
+        <Button text="Close" onClick={close} />
       </div>
     </div>
 
@@ -41,5 +44,13 @@ const NewTodo = () => (
     </style>
   </div>
 );
+
+NewTodo.propTypes = {
+  close: PropTypes.func.isRequired,
+  values: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+};
 
 export default NewTodo;

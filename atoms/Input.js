@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ inputId, inputName }) => (
+const Input = ({ field, form: { touched, errors }, ...props }) => (
   <div>
-    <input type="text" id={inputId} name={inputName} />
+    <div>
+      <input type="text" {...field} {...props} />
+      {touched[field.name] && errors[field.name] && (
+        <div className="error">{errors[field.name]}</div>
+      )}
+    </div>
 
     <style jsx>
       {`
@@ -23,8 +28,13 @@ const Input = ({ inputId, inputName }) => (
 );
 
 Input.propTypes = {
-  inputId: PropTypes.string.isRequired,
-  inputName: PropTypes.string.isRequired,
+  field: PropTypes.shape({
+    name: PropTypes.string,
+  }).isRequired,
+  form: PropTypes.shape({
+    touched: PropTypes.string,
+    errors: PropTypes.string,
+  }).isRequired,
 };
 
 export default Input;

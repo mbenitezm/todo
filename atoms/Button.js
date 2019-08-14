@@ -1,11 +1,12 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ text, buttonType, onClick }) => (
+const Button = ({ text, buttonColor, buttonType, onClick }) => (
   <div>
     <button
-      className={`btn ${buttonType === 'success' ? 'btn-success' : 'btn-default'}`}
-      type="button"
+      className={`btn ${buttonColor === 'success' ? 'btn-success' : 'btn-default'}`}
+      type={buttonType}
       onClick={onClick}
     >
       {text}
@@ -43,12 +44,14 @@ const Button = ({ text, buttonType, onClick }) => (
 Button.propTypes = {
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
+  buttonColor: PropTypes.string,
   buttonType: PropTypes.string,
 };
 
 Button.defaultProps = {
   onClick: () => {},
-  buttonType: 'default',
+  buttonColor: 'default',
+  buttonType: 'button',
 };
 
 export default Button;

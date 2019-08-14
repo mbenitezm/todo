@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Text from '../atoms/Text';
-import Button from '../atoms/Button';
+import DeleteTodo from './DeleteTodo';
 
-const Todo = ({ title, description }) => (
+const Todo = ({ todoId, title, description }) => (
   <div>
     <div className="todo">
       <Text text={title} />
@@ -11,7 +11,7 @@ const Todo = ({ title, description }) => (
       <Text text={description} />
       <br />
       <div className="btn-right">
-        <Button text="Delete" />
+        <DeleteTodo todoId={todoId} />
       </div>
     </div>
 
@@ -34,6 +34,7 @@ const Todo = ({ title, description }) => (
 );
 
 Todo.propTypes = {
+  todoId: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };

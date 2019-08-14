@@ -1,0 +1,19 @@
+type Query {
+  allTodos: [Todo!]
+  todo(id: ID!): Todo
+}
+
+type Todo {
+  id: ID!
+  title: String @fake(type: words)
+  description: String @fake(type: words)
+}
+
+input TodoInput {
+  title: String
+  description: String
+}
+
+type Mutation {
+  deleteTodo(id: ID!): Todo
+}
