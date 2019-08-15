@@ -32,8 +32,8 @@ Input.propTypes = {
     name: PropTypes.string,
   }).isRequired,
   form: PropTypes.shape({
-    touched: PropTypes.string,
-    errors: PropTypes.string,
+    touched: PropTypes.object,
+    errors: PropTypes.object,
   }).isRequired,
 };
 
