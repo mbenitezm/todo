@@ -35,7 +35,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "serverless": "^1.46.0",
     "serverless-nextjs-plugin": "^1.2.0",
     "serverless-offline": "^5.5.0",
